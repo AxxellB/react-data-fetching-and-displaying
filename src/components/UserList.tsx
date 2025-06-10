@@ -1,4 +1,5 @@
 import User from "../types/User";
+import UserCard from "./UserCard";
 
 interface UserListProps {
   users: User[];
@@ -20,15 +21,13 @@ const UserList: React.FC<UserListProps> = ({ users, loading, error }) => {
   }
 
   return (
-    <div>
-      <h1>User List</h1>
-      <ul>
+    <div className="user-list-container">
+      <h1 className="section-title">User List</h1>
+      <div className="user-cards-grid">
         {users.map(user => (
-          <li key={user.id}>
-            <strong>{user.name}</strong> ({user.username}) - {user.email}
-          </li>
+          <UserCard key={user.id} user={user} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

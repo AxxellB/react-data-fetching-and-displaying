@@ -7,11 +7,12 @@ const App: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const url = 'https://jsonplaceholder.typicode.com/users'
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        const response = await fetch(url);
 
         if (!response.ok) {
           throw new Error(`An error ocurred! Status: ${response.status}`);
