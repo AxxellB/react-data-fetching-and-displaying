@@ -27,3 +27,5 @@ interface User {
   website: string;
   company: Company;
 }
+
+export default User;
